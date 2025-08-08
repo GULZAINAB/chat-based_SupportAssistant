@@ -1,20 +1,25 @@
 Wi-Fi Troubleshooting:
 1. Ensure Wi-Fi is turned on.
-2. Restart your router.
-3. Reconnect to the network.
-4. Run the network troubleshooter.
+2. Restart your router and modem.
+3. Reconnect to the correct SSID and enter the password again.
+4. Run Windows Network Troubleshooter: Settings > Network & Internet > Status > Network troubleshooter.
+5. Check if other devices can connect; if none can, contact your ISP.
 
 System Restart:
-1. Click Start menu.
-2. Select Power > Restart.
-3. Wait for the system to reboot.
+1. Save all work.
+2. Click Start > Power > Restart (Windows) or Apple menu > Restart (macOS).
+3. If system is unresponsive, press and hold power button for 10 seconds to force shutdown, then power on.
 
-Change Date and Time:
-1. Go to Settings > Time & Language.
+Change Date and Time (Windows):
+1. Settings > Time & Language > Date & time.
 2. Turn off "Set time automatically".
-3. Set time manually.
+3. Click "Change" under "Set the date and time manually" and adjust.
 
-Clear Cache:
-1. Open your browser settings.
-2. Go to Privacy > Clear Browsing Data.
-3. Select "Cached images and files" and clear it.
+Clear Browser Cache (Chrome):
+1. Open Chrome > More (three dots) > More tools > Clear browsing data.
+2. Choose "Cached images and files", select time range, then Clear data.
+
+Update Device Drivers (Windows):
+1. Start > Device Manager.
+2. Expand the device category (e.g., Display adapters).
+3. Right-click device > Update driver > Search automatically for drivers.

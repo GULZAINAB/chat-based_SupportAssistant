@@ -1,35 +1,58 @@
-from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain.text_splitter import CharacterTextSplitter
-from langchain_community.llms import HuggingFaceHub
-from langchain.chains import RetrievalQA
-from langchain.docstore.document import Document
-from dotenv import load_dotenv
+# rag_chain.py
 import os
+from langchain.text_splitter import CharacterTextSplitter
+from langchain.docstore.document import Document
+from langchain.chains import RetrievalQA
 
-load_dotenv()
+# Community packages
+from langchain_community.vectorstores import FAISS
+from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 
-def load_vectorstore():
-    with open("knowledge_base/support_docs.txt", "r") as f:
+INDEX_DIR = "faiss_index"
+
+# Build FAISS index from local file
+def build_vectorstore_from_file(filepath="knowledge_base/support_docs.txt", embeddings=None):
+    with open(filepath, "r", encoding="utf-8") as f:
         content = f.read()
 
-    text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=0)
-    docs = text_splitter.split_text(content)
-    documents = [Document(page_content=d) for d in docs]
+    splitter = CharacterTextSplitter(chunk_size=700, chunk_overlap=50)
+    chunks = splitter.split_text(content)
+    documents = [Document(page_content=c) for c in chunks]
 
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    if embeddings is None:
+        embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")  # ✅ updated
+
     vectorstore = FAISS.from_documents(documents, embeddings)
 
+    # Save locally so future runs don’t rebuild
+    if not os.path.exists(INDEX_DIR):
+        os.makedirs(INDEX_DIR, exist_ok=True)
+    vectorstore.save_local(INDEX_DIR)
     return vectorstore
 
-def create_rag_chain():
-    vectorstore = load_vectorstore()
-    retriever = vectorstore.as_retriever()
+# Load FAISS index or rebuild
+def load_or_build_vectorstore(filepath="knowledge_base/support_docs.txt"):
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")  # ✅ updated
 
-    llm = HuggingFaceHub(
-        repo_id="mistralai/Mistral-7B-Instruct-v0.2",
-        model_kwargs={"temperature": 0.5, "max_new_tokens": 512}
+    if os.path.exists(INDEX_DIR):
+        try:
+            vs = FAISS.load_local(INDEX_DIR, embeddings, allow_dangerous_deserialization=True)
+            return vs
+        except Exception:
+            pass  # If load fails, rebuild
+
+    return build_vectorstore_from_file(filepath, embeddings=embeddings)
+
+# Create the RAG QA chain
+def create_rag_qa_chain():
+    vectorstore = load_or_build_vectorstore()
+    retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 4})
+
+    llm = ChatGoogleGenerativeAI(model="models/gemini-1.5-pro-latest", temperature=0.0)  # ✅ updated
+
+    qa_chain = RetrievalQA.from_chain_type(
+        llm=llm,
+        retriever=retriever,
+        return_source_documents=False
     )
-
-    qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
     return qa_chain
