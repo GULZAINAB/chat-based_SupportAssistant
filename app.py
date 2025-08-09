@@ -28,7 +28,7 @@ if query:
 
     with st.spinner("Generating answer..."):
         try:
-            answer = qa_chain.run(query)
+            answer = qa_chain.invoke(query)
         except Exception as e:
             st.error(f"Error generating response: {e}")
             answer = None
