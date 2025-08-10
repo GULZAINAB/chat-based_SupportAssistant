@@ -48,7 +48,7 @@ def create_rag_qa_chain():
     vectorstore = load_or_build_vectorstore()
     retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 4})
 
-    llm = ChatGoogleGenerativeAI(model="models/gemini-1.5-pro-latest", temperature=0.0)  # ✅ updated
+    llm = ChatGoogleGenerativeAI(model="models/gemini-2.0-flash-lite-001", temperature=1.0)  # ✅ updated
 
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
