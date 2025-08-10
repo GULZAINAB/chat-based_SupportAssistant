@@ -1,4 +1,4 @@
-#  RAG IT Support Assistant
+#  RAG — Chat-based IT Support Assistant
 
 A chat-based support assistant using **Retrieval-Augmented Generation (RAG)** to provide professional IT support solutions. The system combines rule-based intent classification with AI-powered knowledge retrieval for accurate technical assistance.
 
@@ -9,7 +9,7 @@ A chat-based support assistant using **Retrieval-Augmented Generation (RAG)** to
 - **Embeddings**: Google Text Embedding 004
 - **Vector Database**: FAISS
 - **Framework**: LangChain
-- **Language**: Python 3.8+
+- **Language**: Python
 
 ##  Quick Start
 
@@ -63,12 +63,6 @@ A chat-based support assistant using **Retrieval-Augmented Generation (RAG)** to
 ├── rag_chain.py        # RAG pipeline
 ├── intents.py          # Intent classification
 ├── requirements.txt    # Dependencies
-├── .env               # Environment variables
-└── knowledge_base/    # IT documentation
+├── .env                # Environment variables (make sure to include ur env file containing your Api)
+└── knowledge_base/     # support_docs
 ```
-
-## ⚠️ Requirements
-
-- Python 
-- Gemini API Key
-- Internet connection
