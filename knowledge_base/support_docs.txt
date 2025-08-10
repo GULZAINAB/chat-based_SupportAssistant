@@ -1,25 +1,126 @@
-Wi-Fi Troubleshooting:
-1. Ensure Wi-Fi is turned on.
-2. Restart your router and modem.
-3. Reconnect to the correct SSID and enter the password again.
-4. Run Windows Network Troubleshooter: Settings > Network & Internet > Status > Network troubleshooter.
-5. Check if other devices can connect; if none can, contact your ISP.
+IT Support Knowledge Base
+Wi-Fi Troubleshooting
+Common Issues: Slow internet, unable to connect, frequent disconnections, "no internet access" error
+Step-by-Step Solution:
 
-System Restart:
-1. Save all work.
-2. Click Start > Power > Restart (Windows) or Apple menu > Restart (macOS).
-3. If system is unresponsive, press and hold power button for 10 seconds to force shutdown, then power on.
+Check Wi-Fi Status: Ensure Wi-Fi is turned on in your device settings. Look for the Wi-Fi icon in your system tray (Windows) or menu bar (macOS).
+Power Cycle Network Equipment: Restart your router and modem by unplugging them for 30 seconds, then plugging back in. Wait 2-3 minutes for full startup.
+Reconnect to Network: Go to Wi-Fi settings, forget your current network, then reconnect by selecting the correct SSID and entering the password again. Make sure you're connecting to your network, not a neighbor's.
+Run Network Diagnostics:
 
-Change Date and Time (Windows):
-1. Settings > Time & Language > Date & time.
-2. Turn off "Set time automatically".
-3. Click "Change" under "Set the date and time manually" and adjust.
+Windows: Settings > Network & Internet > Status > Network troubleshooter
+macOS: Hold Option key + click Wi-Fi icon > Open Wireless Diagnostics
 
-Clear Browser Cache (Chrome):
-1. Open Chrome > More (three dots) > More tools > Clear browsing data.
-2. Choose "Cached images and files", select time range, then Clear data.
 
-Update Device Drivers (Windows):
-1. Start > Device Manager.
-2. Expand the device category (e.g., Display adapters).
-3. Right-click device > Update driver > Search automatically for drivers.
+Check Multiple Devices: Test if other devices (phones, tablets, laptops) can connect. If none can connect, the issue is with your internet service provider (ISP) - contact them for support.
+Advanced Troubleshooting:
+
+Check if you're close enough to the router (try moving closer)
+Restart your network adapter: Device Manager > Network adapters > Right-click your Wi-Fi adapter > Disable, then Enable
+Reset network settings if other steps fail
+
+
+
+When to Contact Support: If none of these steps work, or if the problem persists after trying all solutions.
+
+System Restart Procedures
+When to Restart: System running slowly, programs freezing, after software installations, or when experiencing general performance issues
+Normal Restart Process:
+
+Save Your Work: Close all applications and save any open documents to prevent data loss.
+Initiate Restart:
+
+Windows: Click Start button > Power icon > Restart
+macOS: Apple menu (🍎) > Restart
+Linux: System menu > Power Off/Log Out > Restart
+
+
+Wait for Complete Restart: Allow the system to fully shut down and boot up again (usually 2-5 minutes).
+
+Force Restart (When System is Frozen):
+
+Last Resort Only: Use this method only when the system is completely unresponsive.
+Force Shutdown: Press and hold the physical power button for 10-15 seconds until the system completely shuts down.
+Wait and Restart: Wait 10-20 seconds, then press the power button once to turn the system back on.
+Check for Errors: After restart, the system may run a disk check or show recovery options - follow the prompts.
+
+Post-Restart Tips: If you had to force restart, run a disk check and consider updating your system to prevent future freezes.
+
+Change Date and Time Settings
+Windows 10/11:
+
+Access Settings: Right-click on the date/time in the taskbar and select "Adjust date/time", or go to Settings > Time & Language > Date & time.
+Disable Automatic Time: Turn off "Set time automatically" toggle switch.
+Manual Time Setting: Click "Change" button under "Set the date and time manually".
+Adjust Settings: Set the correct date and time, then click "Change" to save.
+Time Zone: If needed, also adjust your time zone in the same settings page.
+Sync Time: You can re-enable "Set time automatically" to sync with internet time servers.
+
+macOS:
+
+System Preferences: Apple menu > System Preferences > Date & Time
+Unlock Settings: Click the lock icon and enter your administrator password
+Manual Setting: Uncheck "Set date and time automatically"
+Adjust: Click on the date and time fields to modify them directly
+Time Zone: Use the "Time Zone" tab to adjust your location if needed
+
+Why This Matters: Incorrect date/time can cause issues with file synchronization, email, security certificates, and software licensing.
+
+Clear Browser Cache
+Google Chrome:
+
+Open Clear Data Menu: Click the three dots (⋮) in the top-right corner > More tools > Clear browsing data, or press Ctrl+Shift+Delete (Windows) or Cmd+Shift+Delete (macOS).
+Select Time Range: Choose how far back to clear data (Last hour, 24 hours, 7 days, 4 weeks, or All time).
+Choose Data Types: Check "Cached images and files" at minimum. You may also want to clear "Cookies and other site data" if experiencing login issues.
+Clear Data: Click "Clear data" button and wait for the process to complete.
+Restart Browser: Close and reopen Chrome for best results.
+
+Other Browsers:
+
+Firefox: Ctrl+Shift+Delete > Check "Cache" > Clear Now
+Safari: Safari menu > Clear History > Select time range
+Edge: Three dots > Settings > Privacy, search, and services > Clear browsing data
+
+When to Clear Cache: If websites aren't loading properly, you see old/outdated content, or experiencing slow browsing performance.
+What This Does: Removes temporary files that websites store on your computer, which can become corrupted or outdated.
+
+Update Device Drivers
+Windows Device Manager Method:
+
+Open Device Manager: Right-click Start button > Device Manager, or press Windows key + X and select Device Manager.
+Identify Problem Devices: Look for devices with yellow warning triangles or red X marks indicating driver issues.
+Select Device Category: Expand the relevant category (e.g., Display adapters, Network adapters, Audio inputs and outputs).
+Update Driver: Right-click on the specific device > "Update driver" > "Search automatically for drivers".
+Follow Prompts: Windows will search online for the best driver and install it automatically.
+Restart if Needed: Some driver updates require a system restart to take effect.
+
+Alternative Update Methods:
+
+Windows Update: Settings > Windows Update > Check for updates (often includes driver updates)
+Manufacturer Website: Visit the device manufacturer's website to download specific drivers
+Device Manager Rollback: If a new driver causes issues, right-click device > Properties > Driver tab > "Roll Back Driver"
+
+Common Driver Types to Update:
+
+Graphics/Display: For better performance and compatibility with games/software
+Network: To fix connectivity issues
+Audio: To resolve sound problems
+USB/Bluetooth: For peripheral device connectivity
+
+Signs You Need Driver Updates: Device not working properly, poor performance, error messages mentioning drivers, or after major Windows updates.
+
+Additional Troubleshooting Tips
+General Performance Issues:
+
+Check available disk space (keep at least 15% free)
+Run disk cleanup utility
+Check for malware using Windows Defender or antivirus software
+Disable unnecessary startup programs
+
+When to Contact IT Support:
+
+Hardware failure suspected
+Repeated system crashes
+Security concerns or potential malware
+Issues affecting multiple users or business-critical systems
+Problems persisting after following all troubleshooting steps
